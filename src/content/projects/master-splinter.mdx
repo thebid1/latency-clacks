@@ -1,0 +1,39 @@
+---
+title: "Master Splinter"
+description: "High-frequency Telegram bot monitoring Dexscreener for new token launches"
+status: "Live"
+technologies: ["TypeScript", "Node.js", "Telegram API", "Dexscreener API", "Redis", "Railway"]
+liveUrl: "https://t.me/bidanalyzebot"
+icon: "📡"
+---
+
+## Overview
+
+Master Splinter is an automated monitoring system that tracks new token pairs on decentralized exchanges, filtering noise to surface high-potential opportunities within seconds of launch.
+
+## The Problem
+
+Manual monitoring of new token launches on decentralized exchanges is inefficient. By the time a human spots an opportunity, it's often too late, the best entries are gone, or worse, it's a rug pull.
+
+## Key Features
+
+- **Speed**: Alerts within seconds of token creation
+- **Smart Filtering**: Liquidity checks, contract verification, blacklist screening
+- **Rich Context**: Contract details, social links, and liquidity info instantly
+- **Deduplication**: Redis cache prevents alert spam
+
+## Architecture
+
+Polling-based architecture with WebSocket fallbacks:
+
+1. **Data Ingestion**: Monitors Dexscreener API continuously
+2. **Filtering Layer**: Applies configurable rules (min liquidity, verified contracts, etc.)
+3. **Deduplication**: Redis cache prevents duplicate alerts
+4. **Broadcast**: Telegram Bot API delivers formatted messages instantly
+
+## Results
+
+- **Alert Latency**: Average 3.2 seconds from token creation to Telegram
+- **Daily Alerts**: Curated list of quality opportunities
+- **User Retention**: High engagement from active traders
+

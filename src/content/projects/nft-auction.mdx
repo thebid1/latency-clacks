@@ -1,0 +1,46 @@
+---
+title: "Private NFT Auction dApp"
+description: "Confidential NFT marketplace with sealed-bid auctions on Solana using Arcium MPC"
+status: "Building"
+technologies: ["Rust", "Anchor", "Solana", "Arcium MPC", "Next.js", "IPFS"]
+icon: "🎨"
+---
+
+## Overview
+
+A **confidential NFT auction platform** built on Solana leveraging **Arcium's Multi-Party Computation (MPC)** technology. Enables sealed-bid auctions where bid amounts remain encrypted and private until the auction ends—ensuring fair price discovery without front-running or bid sniping.
+
+## Status
+
+🚧 **Currently Building**
+
+This project is under active development on the Solana devnet. Smart contracts are being written in Rust with Anchor framework, integrating Arcium's confidential computing infrastructure.
+
+## The Concept
+
+Traditional NFT auctions have a major flaw: **bid visibility**. When bids are public, sniping and psychological manipulation distort price discovery. Sellers don't get fair market value, and buyers pay more than necessary.
+
+Our solution uses **Arcium MPC** (Multi-Party Computation):
+- Bids are encrypted using Arcium's confidential computing network
+- No single party can see bids until reveal phase
+- Computation happens on encrypted data
+- True sealed-bid mechanics on a public blockchain
+
+## Tech Stack
+
+- **Rust + Anchor**: Solana smart contract development
+- **Arcium MPC**: Confidential computing and encryption
+- **Solana**: High-performance L1 blockchain
+- **Next.js**: Frontend framework
+- **IPFS**: Decentralized metadata storage
+
+## Planned Features
+
+- **Confidential Bids**: Encrypted using Arcium's MPC network
+- **Anti-Sniping**: Impossible to front-run or game
+- **Fair Price Discovery**: True market value for both parties
+- **On-Chain Settlement**: Guaranteed execution via Solana
+
+## Coming Soon
+
+Stay tuned for the devnet launch announcement. The dApp will be deployed to Solana devnet first for testing, followed by a mainnet launch after security audits are complete.
