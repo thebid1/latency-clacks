@@ -1,3 +1,4 @@
+import React from "react";
 import { CodeBlock } from "@/components/ui/CodeBlock";
 import { cn } from "@/lib/utils";
 
@@ -93,9 +94,19 @@ export const mdxComponents = {
     return <code className={className} {...props}>{children}</code>;
   },
   pre: ({ children }: { children?: React.ReactNode }) => {
-    // Extract code content from children
-    const codeElement = children as React.ReactElement<{ children?: React.ReactNode; className?: string }>;
-    const code = String(codeElement?.props?.children ?? "");
+    // Safely extract code content from children
+    if (!children || typeof children !== 'object') {
+      return <CodeBlock code="" language="typescript" />;
+    }
+    
+    const codeElement = children as React.ReactElement<{ 
+      children?: React.ReactNode; 
+      className?: string 
+    }>;
+    
+    const code = codeElement?.props?.children 
+      ? String(codeElement.props.children) 
+      : "";
     const className = codeElement?.props?.className ?? "";
     const language = className.replace("language-", "") || "typescript";
     
