@@ -92,11 +92,11 @@ export const mdxComponents = {
     
     return <code className={className} {...props}>{children}</code>;
   },
-  pre: ({ children, ...props }: React.HTMLAttributes<HTMLPreElement>) => {
+  pre: ({ children }: { children?: React.ReactNode }) => {
     // Extract code content from children
-    const codeElement = children as React.ReactElement;
-    const code = codeElement?.props?.children?.toString() || "";
-    const className = codeElement?.props?.className || "";
+    const codeElement = children as React.ReactElement<{ children?: React.ReactNode; className?: string }>;
+    const code = String(codeElement?.props?.children ?? "");
+    const className = codeElement?.props?.className ?? "";
     const language = className.replace("language-", "") || "typescript";
     
     return <CodeBlock code={code} language={language} />;

@@ -25,7 +25,7 @@ yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
-# Local env files (NEVER commit these)
+# Local env files 
 .env*.local
 .env
 .env.production
