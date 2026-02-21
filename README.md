@@ -1,8 +1,9 @@
-<<<<<<< HEAD
 # latency-clacks
 My Portfolio
 =======
 # thebid | Web3 Portfolio
+
+Live link: https://thebidfr.vercel.app
 
 A high-performance personal portfolio website for a Web3 Automation Engineer & Smart Contract Developer.
 
@@ -13,8 +14,6 @@ A high-performance personal portfolio website for a Web3 Automation Engineer & S
 ## 🎯 Purpose
 
 This portfolio demonstrates technical competence in Web3 development—proving the ability to build infrastructure (bots, contracts, tooling) rather than just investing in crypto.
-
-**Target Audience:** Recruiters at University Digital Entrepreneurship Hubs & Web3 startups.
 
 ## ✨ Features
 
@@ -174,4 +173,5 @@ This portfolio includes production-ready security measures:
 ## 📝 License
 
 MIT License - Built with passion for Web3.
+
 >>>>>>> 8074716 (my-portfolio)
