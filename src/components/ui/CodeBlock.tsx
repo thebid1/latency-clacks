@@ -27,7 +27,7 @@ export function CodeBlock({
 
   const highlightedCode = code
     .replace(
-      /(const|let|var|function|return|if|else|async|await|import|from|export|default|class|interface|type)/g,
+      /\b(const|let|var|function|return|if|else|async|await|import|from|export|default|class|interface|type)\b/g,
       '<span class="text-violet-400">$1</span>'
     )
     .replace(

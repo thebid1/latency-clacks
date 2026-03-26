@@ -4,6 +4,26 @@ export type { Project, ProjectStatus };
 
 export const projects: Project[] = [
   {
+    slug: "agent-mesh",
+    title: "Agent Mesh",
+    description:
+      "Autonomous multi-agent economic simulation on Solana devnet. 4 AI agents trading on a custom AMM with emergent market behavior.",
+    longDescription:
+      "A live multi-agent economic simulation where 4 specialized AI agents trade autonomously on a custom Solana AMM. Placed 25th out of 113 in a bounty competition.",
+    technologies: [
+      "TypeScript",
+      "Solana",
+      "Anchor",
+      "Node.js",
+      "Rust",
+      "Web3.js",
+    ],
+    status: "Live",
+    icon: "🤖",
+    liveUrl: "https://github.com/thebid1/Agent-Mesh",
+    featured: true,
+  },
+  {
     slug: "master-splinter",
     title: "Master Splinter",
     description:
@@ -59,7 +79,7 @@ export const projects: Project[] = [
     status: "Live",
     icon: "📈",
     liveUrl: "https://t.me/snooperstenbot",
-    featured: true,
+    featured: false,
   },
   {
     slug: "nft-auction",
@@ -78,7 +98,7 @@ export const projects: Project[] = [
     ],
     status: "Building",
     icon: "🎨",
-    featured: true,
+    featured: false,
   },
 ];
 

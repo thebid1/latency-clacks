@@ -6,10 +6,10 @@ import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
 import { ArrowRight, MessageCircle } from "lucide-react";
 import Link from "next/link";
-import { projects } from "@/lib/projects";
+import { getFeaturedProjects } from "@/lib/projects";
 
 export function FeaturedProjects() {
-  const featuredProjects = projects.slice(0, 3);
+  const featuredProjects = getFeaturedProjects().slice(0, 3);
 
   return (
     <section className="py-24">

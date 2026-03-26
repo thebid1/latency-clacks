@@ -1,7 +1,7 @@
 import { Container } from "@/components/ui/Container";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
-import { ArrowLeft, MessageCircle, ExternalLink } from "lucide-react";
+import { ArrowLeft, MessageCircle, Github, ExternalLink } from "lucide-react";
 import Link from "next/link";
 import { getProjectBySlug, getProjectSlugs } from "@/lib/mdx";
 import { MDXRemote } from "next-mdx-remote/rsc";
@@ -103,8 +103,17 @@ export default async function ProjectPage({ params }: PageProps) {
                 rel="noopener noreferrer"
               >
                 <Button variant="primary">
-                  <MessageCircle className="w-4 h-4 mr-2" />
-                  Open in Telegram
+                  {frontmatter.liveUrl.includes("github.com") ? (
+                    <>
+                      <Github className="w-4 h-4 mr-2" />
+                      View on GitHub
+                    </>
+                  ) : (
+                    <>
+                      <MessageCircle className="w-4 h-4 mr-2" />
+                      Open in Telegram
+                    </>
+                  )}
                 </Button>
               </a>
             )}

@@ -16,20 +16,27 @@ interface VideoItem {
 const videos: VideoItem[] = [
   {
     id: "1",
+    title: "Agent Mesh",
+    description: "Multi-agent autonomous trading simulation on Solana devnet. Four AI agents trading on a custom AMM with emergent market behavior.",
+    duration: "Demo",
+    videoSrc: "/media/videos/AgentMesh.mp4",
+  },
+  {
+    id: "2",
     title: "Snoopers Tenfold",
     description: "Paper trading bot demo showcasing the Snoopers Tenfold bot in operation with real-time portfolio tracking and simulated trades.",
     duration: "Demo",
     videoSrc: "/media/videos/snoopers-tenfold.mp4",
   },
   {
-    id: "2",
+    id: "3",
     title: "Campus Safe Survey Campaign 1",
     description: "Campus Safe Survey Campaign 1.",
     duration: "0:24",
     videoSrc: "/media/videos/campus-safe-1.mp4",
   },
   {
-    id: "3",
+    id: "4",
     title: "Campus Safe Campaign 2",
     description: "Campus Safe Survey Campaign 2.",
     duration: "0:25",

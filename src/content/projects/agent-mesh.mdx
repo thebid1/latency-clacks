@@ -1,0 +1,124 @@
+---
+title: "Agent Mesh"
+description: "Autonomous multi-agent economic simulation on Solana devnet with 4 specialized AI agents trading on a custom AMM"
+status: "Live"
+technologies: ["TypeScript", "Solana", "Anchor", "Node.js", "Rust", "Web3.js", "Express"]
+liveUrl: "https://github.com/thebid1/Agent-Mesh"
+icon: "🤖"
+---
+
+## Overview
+
+Agent Mesh is a live multi-agent economic simulation where 4 specialized AI agents trade autonomously on a custom Solana AMM, creating emergent market behavior through inter-agent coordination.
+
+This project was submitted for a Solana bounty competition and **placed 25th out of 113 submissions**.
+
+## The Concept
+
+Traditional trading bots operate in isolation. Agent Mesh explores what happens when multiple autonomous agents with different strategies interact in the same market—creating emergent behaviors through:
+
+- **Inter-agent communication** via message bus
+- **Dynamic liquidity management** from a central Banker
+- **Price action generation** through volatility injection
+- **On-chain settlement** with real transaction signatures
+
+## Architecture
+
+The system consists of four autonomous agents communicating through a message bus, trading against a custom Solana AMM program:
+
+```
+┌──────────────────────────────────────────────┐
+│           AGENT MESH SWARM                   │
+├──────────────────────────────────────────────┤
+│  ┌──────────┐ ┌──────────┐ ┌──────────┐     │
+│  │Arbitrageur│ │Liquidity │ │  Trend   │     │
+│  │  Agent   │ │ Provider │ │ Follower │     │
+│  │ (📈)     │ │  (💧)    │ │  (📊)    │     │
+│  └────┬─────┘ └────┬─────┘ └────┬─────┘     │
+│       │            │            │           │
+│       └────────────┼────────────┘           │
+│                    │                        │
+│         ┌──────────▼──────────┐             │
+│         │     MessageBus      │             │
+│         │   (HTTP polling)    │             │
+│         └──────────┬──────────┘             │
+│                    │                        │
+│  ┌─────────────────┴──────────────────┐    │
+│  │   Custom AMM Program (Devnet)      │    │
+│  │   4 pools • Constant product       │    │
+│  └────────────────────────────────────┘    │
+└──────────────────────────────────────────────┘
+```
+
+## The Agents
+
+### 📈 Arbitrageur Agent
+**Strategy:** Price momentum trading  
+**Behavior:** Buys dips greater than 0.2%, sells rallies greater than 0.2%
+
+### 📊 Trend Follower Agent  
+**Strategy:** Moving average crossover  
+**Behavior:** Trades on MA3/MA5 golden/death cross signals
+
+### 💧 Liquidity Provider Agent
+**Strategy:** TVL-based liquidity provision  
+**Behavior:** Adds liquidity to low-TVL pools for higher fee share
+
+### 🏦 Banker Agent
+**Strategy:** Central funding coordinator  
+**Behavior:** Monitors all agents, transfers SOL when balance drops below 0.3
+
+## Key Features
+
+- **Autonomous Trading**: Agents scan markets and execute trades independently
+- **Encrypted Wallet Management**: AES-256-GCM encryption, agents never handle raw keys
+- **Real On-Chain Transactions**: All trades settle on Solana devnet with verifiable signatures
+- **Live Dashboard**: Web interface for monitoring agent activity in real-time
+- **Volatility Generator**: Creates price movements to give agents trading opportunities
+
+## Technical Highlights
+
+### Custom Solana AMM Program
+- Deployed Rust program on devnet
+- Constant product formula (x times y equals k)
+- PDA-based vaults for token custody
+- Slippage protection built-in
+
+### Security-First Wallet Design
+
+Agents request operations, WalletManager handles signing:
+
+```typescript
+const signature = await walletManager.signAndSend(
+  transaction,
+  agentName
+);
+// Private keys encrypted at rest, decrypted on-demand
+```
+
+### Message Bus Architecture
+Agents communicate via HTTP polling to coordinate:
+- Liquidity requests to Banker
+- Market state broadcasts
+- Transaction confirmations
+
+## Results
+
+- **Bounty Placement**: 25th of 113 submissions
+- **Live Trading**: Agents execute real transactions every 5-60 seconds
+- **Uptime**: System runs indefinitely on devnet
+- **Transaction Volume**: Thousands of on-chain trades logged
+
+## Sample Transaction Log
+
+| Time | Agent | Action | Token | TX Signature |
+|------|-------|--------|-------|--------------|
+| 08:41:24 | trend-follower | BUY | AUSDC | 5xttzTWw... |
+| 08:41:26 | arbitrageur | BUY | AUSDC | 2QsazZcis... |
+| 08:41:28 | arbitrageur | BUY | ASOL | 4qwe343ycz... |
+
+## Repository
+
+View the full source code and run your own agent swarm:
+
+**GitHub**: [github.com/thebid1/Agent-Mesh](https://github.com/thebid1/Agent-Mesh)
